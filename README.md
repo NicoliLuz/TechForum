@@ -1,48 +1,51 @@
-CREATE DATABASE techforum;
-USE techforum;
+## Banco de Dados (mySQL)
+<br>
+CREATE DATABASE techforum; <br>
+USE techforum; <br>
+<br>
 
-CREATE TABLE usuarios(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(255),
-    email VARCHAR(255),
-    senha VARCHAR(255)
+CREATE TABLE usuarios(<br>
+    id INT PRIMARY KEY AUTO_INCREMENT,<br>
+    nome VARCHAR(255),<br>
+    email VARCHAR(255),<br>
+    senha VARCHAR(255)<br>
 );
 
-CREATE TABLE amigos(
-   id_usuario INT,
-   id_amigo INT,
-   CONSTRAINT PK_amigos PRIMARY KEY (id_usuario, id_amigo),
-   FOREIGN KEY(id_usuario) REFERENCES usuarios(id),
-   FOREIGN KEY(id_amigo) REFERENCES usuarios(id)
+CREATE TABLE amigos(<br>
+   id_usuario INT,<br>
+   id_amigo INT,<br>
+   CONSTRAINT PK_amigos PRIMARY KEY (id_usuario, id_amigo),<br>
+   FOREIGN KEY(id_usuario) REFERENCES usuarios(id),<br>
+   FOREIGN KEY(id_amigo) REFERENCES usuarios(id)<br>
 );
 
-CREATE TABLE postagens(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(255),
-    informacoes TEXT,
-    datapost TIMESTAMP
+CREATE TABLE postagens(<br>
+    id INT PRIMARY KEY AUTO_INCREMENT,<br>
+    titulo VARCHAR(255),<br>
+    informacoes TEXT,<br>
+    datapost TIMESTAMP<br>
 );
 
-CREATE TABLE mensagens(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    informacoes TEXT,
-    datamensagem TIMESTAMP,
-    autor_id INT,
-    FOREIGN KEY(autor_id) REFERENCES usuarios(id)
+CREATE TABLE mensagens(<br>
+    id INT PRIMARY KEY AUTO_INCREMENT,<br>
+    informacoes TEXT,<br>
+    datamensagem TIMESTAMP,<br>
+    autor_id INT,<br>
+    FOREIGN KEY(autor_id) REFERENCES usuarios(id)<br>
 );
 
-CREATE TABLE conversas(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    informacoes TEXT,
-    dataconversa TIMESTAMP,
-    autor_id INT,
-    amigo_id INT,
-    FOREIGN KEY(autor_id) REFERENCES usuarios(id),
-    FOREIGN KEY(amigo_id) REFERENCES usuarios(id)
+CREATE TABLE conversas(<br>
+    id INT PRIMARY KEY AUTO_INCREMENT,<br>
+    informacoes TEXT,<br>
+    dataconversa TIMESTAMP,<br>
+    autor_id INT,<br>
+    amigo_id INT,<br>
+    FOREIGN KEY(autor_id) REFERENCES usuarios(id),<br>
+    FOREIGN KEY(amigo_id) REFERENCES usuarios(id)<br>
 );
 
-CREATE TABLE categorias(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(255),
-    informacoes TEXT
+CREATE TABLE categorias(<br>
+    id INT PRIMARY KEY AUTO_INCREMENT,<br>
+    titulo VARCHAR(255),<br>
+    informacoes TEXT<br>
 );
